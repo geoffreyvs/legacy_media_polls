@@ -1,0 +1,477 @@
+---
+title: "2022 Midterm Polling Shortage"
+author: "Geoffrey Skelley"
+date: "10/13/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+rm(list = ls())
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+setwd("/Users/skelg001/Documents/FiveThirtyEight/2022-10-20_MIDTERM_POLLS")
+options(scipen=999)
+```
+
+```{r libraries, message = FALSE, warning = FALSE}
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(lubridate)
+library(ggplot2)
+
+```
+
+```{r base data}
+
+elec_day <- read.csv("skelley.LEGACY-POLLS.1020 _ skelley.UNDERPOLLED.10TK - elecday.csv", stringsAsFactors = FALSE)
+
+gb22 <-read.csv("2022_gb_10-18.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2022)
+gb18 <- read.csv("2018_gb.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2018)
+gb14 <- read.csv("2014_gb.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2014)
+gb10 <- read.csv("2010_gb.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2010)
+
+gb1022 <- bind_rows(gb10, gb14, gb18, gb22) %>%
+  mutate(type = "GB")
+
+house22 <- read.csv("2022_house_10-18.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2022)
+house18 <- read.csv("2018_house.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2018)
+house14 <- read.csv("2014_house.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2014)
+house10 <- read.csv("2010_house.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2010)
+
+house1022 <- bind_rows(house10, house14, house18, house22) %>%
+  mutate(type = "H")
+
+sen22 <- read.csv("2022_sen_10-18.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2022)
+sen18 <- read.csv("2018_sen.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2018)
+sen14 <- read.csv("2014_sen.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2014)
+sen10 <- read.csv("2010_sen_may.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2010)
+
+sen1022 <- bind_rows(sen10, sen14, sen18, sen22) %>%
+  mutate(type = "S")
+
+gov22 <- read.csv("2022_gov_10-18.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2022)
+gov18 <- read.csv("2018_gov.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2018)
+gov14 <- read.csv("2014_gov.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2014)
+gov10 <- read.csv("2010_gov.csv", stringsAsFactors = FALSE) %>%
+  dplyr::select(-url,	-source) %>%
+  mutate(cycle = 2010)
+
+gov1022 <- bind_rows(gov10, gov14, gov18, gov22) %>%
+  mutate(type = "G")
+
+all1022 <- bind_rows(gb1022, house1022, sen1022, gov1022) %>%
+  select(cycle, type, race_id, senate_class, house_district, special, everything())
+
+write.csv(all1022, "allpolls.csv")
+
+all1022$end_date <- mdy(all1022$end_date)
+all1022$start_date <- mdy(all1022$start_date)
+elec_day$election_day <- mdy(elec_day$election_day)
+```
+
+```{r cleaning}
+#check number of primary polls
+primary1022 <- all1022 %>%
+  filter(subpopulation == "d" | subpopulation == "r") #141 observations
+
+tracker1022 <- all1022 %>%
+  filter(tracking == TRUE)
+
+rasmussen <- all1022 %>%
+  filter(pollster_id == 399)
+
+#clean to remove primary polls and turn blanks to NA
+#remove banned pollsters
+#remove special elections
+clean1022 <- all1022 %>% 
+  mutate_all(na_if,"") %>% #turn all blanks to NA
+#clean to remove primary polls and turn blanks to NA
+  filter(is.na(subpopulation)) %>% #removed 141 observations of primary polls
+#remove banned pollsters
+  filter(pollster_id != 403) %>% #Research 2000
+  filter(pollster_id != 470) %>% #TCJ Research
+  filter(pollster_id != 1484) %>% #Blumenthal Research Daily
+  filter(pollster_id != 1493) %>% #KG Polling
+#remove special elections  
+  filter(race_id != 1799) %>% #2010 FL-19
+  filter(race_id != 9454) %>% #2010 GA-09 jungle primary
+  filter(race_id != 1796) %>% #2010 GA-09 runoff
+  filter(race_id != 1797) %>% #2010 HI-01
+  filter(race_id != 1526) %>% #2010 MA-Sen
+  filter(race_id != 1798) %>% #2010 PA-12
+  filter(race_id != 1777) %>% #2014 FL-13
+  filter(race_id != 1776) %>% #2014 FL-19
+  filter(race_id != 1758) %>% #2018 AZ-08
+  filter(race_id != 1756) %>% #2018 OH-12
+  filter(race_id != 1759) %>% #2018 PA-18
+  filter(race_id != 1757) %>% #2018 TX-27 jungle primary (final)
+  filter(race_id != 9496) %>% #2022 AK-AL
+  filter(race_id != 9498) %>% #2022 CA-22 jungle primary
+  filter(race_id != 9499) %>% #2022 CA-22 runoff
+  filter(race_id != 9451) %>% #2022 FL-20
+  filter(race_id != 9481) %>% #2022 MN-01
+  filter(race_id != 9500) %>% #2022 NE-01
+  filter(race_id != 9503) %>% #2022 NY-19
+  filter(race_id != 9537) %>% #2022 NY-23
+  filter(race_id != 9501)     #2022 TX-34 jungle primary (final)
+
+clean1022 <- left_join(clean1022, elec_day) %>%
+  #create days in field var
+  mutate(field_days = time_length(end_date - start_date + 1, unit = "days")) %>%
+  #days from election var
+  mutate(days_elec = time_length(end_date - election_day, unit = "days")) %>%
+  filter(days_elec > -181 & days_elec < 1) #6 months out or less, removes any runoff polls
+
+#check number of poll types and how many NA blank pops there are
+pop1022 <- clean1022 %>%
+  group_by(poll_id, type, race_id, senate_class, house_district, population_full) %>%
+  summarize(
+    n = n()
+  )
+
+```
+
+```{r fte narrow to most exclusive type}
+
+filter1022 <- clean1022 %>%
+  mutate(population_full = replace(population_full, is.na(population_full), "blank")) %>%
+  mutate(pop_hierarchy = if_else(population == "lv" , 1,
+                                if_else(population_full == "v", 2,
+                                if_else(population_full == "rv", 3,
+                                if_else(population_full == "a", 4, 
+                                if_else(population_full == "blank", 5, 6)))))) %>%
+  group_by(poll_id, type, state, race_id, senate_class, house_district) %>%
+  dplyr::mutate(n = n()) %>%
+  arrange(poll_id, type, state, race_id, senate_class, house_district, pop_hierarchy) %>%
+  slice(1)
+
+
+#trying to get rid of overlapping polls
+limit1022 <- filter1022 %>%
+  dplyr::select(cycle:sponsors, methodology:population, tracking, internal:partisan,election_day:n) %>%
+  dplyr::select(-question_id, -n, -pop_hierarchy, -sponsor_candidate_id) %>%
+  arrange(cycle, type, race_id, pollster_id, sponsors, desc(end_date)) %>%
+  group_by(cycle, type, race_id, pollster_id, sponsors) %>%
+    mutate(poll_order = dense_rank(desc(end_date))) %>%
+    mutate(max_date = max(end_date)) %>%
+    mutate(day_before_start = start_date - 1) %>%
+    mutate(lagend1 = lag(end_date, 1)) %>%
+    mutate(lagend2 = lag(start_date, 2)) %>%
+    mutate(lagend3 = lag(end_date, 3)) %>%
+    mutate(lagend4 = lag(end_date, 4)) %>%
+    mutate(lagend5 = lag(end_date, 5)) %>%
+    mutate(lagend6 = lag(end_date, 6)) %>%
+    mutate(lagend7 = lag(end_date, 7)) %>%
+    mutate(lag_check1 = day_before_start <= lag(end_date, 1)) %>%
+    mutate(lag_check2 = day_before_start <= lag(end_date, 2)) %>%
+    mutate(lag_check3 = day_before_start <= lag(end_date, 3)) %>%
+    mutate(lag_check4 = day_before_start <= lag(end_date, 4)) %>%
+    mutate(lag_check5 = day_before_start <= lag(end_date, 5)) %>%
+    mutate(lag_check6 = day_before_start <= lag(end_date, 6)) %>%
+    mutate(lag_check7 = day_before_start <= lag(end_date, 7))
+```
+    mutate(lagend01 = time_length(end_date - lag(start_date, 1), unit = "days")) %>% #difference between end dates of most recent poll and 1 before it 
+    mutate(lagend02 = time_length(end_date - lag(start_date, 2), unit = "days")) %>% #difference between end dates of most recent poll and 2 before it 
+    mutate(lagend03 = time_length(end_date - lag(start_date, 3), unit = "days")) %>% #difference between end dates of most recent poll and 3 before it 
+    mutate(lagend04 = time_length(end_date - lag(start_date, 4), unit = "days")) %>% #difference between end dates of most recent poll and 4 before it 
+    mutate(lagend05 = time_length(end_date - lag(start_date, 5), unit = "days")) %>% #difference between end dates of most recent poll and 5 before it 
+    mutate(lagend06 = time_length(end_date - lag(start_date, 6), unit = "days")) %>% #difference between end dates of most recent poll and 6 before it 
+    mutate(lagend07 = time_length(end_date - lag(start_date, 7), unit = "days")) %>% #difference between end dates of most recent poll and 7 before it (no overlaps for pollster-sponsor after the 7th lag)
+  arrange(cycle, type, race_id, pollster_id, sponsors, desc(end_date))
+
+limit1022.reg <- limit1022 %>%
+  filter(is.na(tracking))
+         
+         
+         ) %>%
+  filter(spon_id1 %in% 132)
+
+
+ipsos_reuters <- limit1022 %>%
+  filter(cycle == 2018 & pollster == "Ipsos" & sponsors == "Reuters" & tracking == TRUE) %>%
+  mutate(lag_point = if_else(lag01 == 0, 1,
+                     if_else(lag02 == 0, 2,
+                     if_else(lag03 == 0, 3,
+                     if_else(lag04 == 0, 4,
+                     if_else(lag05 == 0, 5,
+                     if_else(lag06 == 0, 6,
+                     if_else(lag07 == 0, 7, 99)))))))) %>%
+  mutate()
+  
+  
+``` 
+
+
+   mutate(lag01 = time_length(end_date - lag(start_date, 1), unit = "days")) %>% #difference between end dates of most recent poll and 1 before it 
+    mutate(lag02 = time_length(end_date - lag(start_date, 2), unit = "days")) %>% #difference between end dates of most recent poll and 2 before it 
+    mutate(lag03 = time_length(end_date - lag(start_date, 3), unit = "days")) %>% #difference between end dates of most recent poll and 3 before it 
+    mutate(lag04 = time_length(end_date - lag(start_date, 4), unit = "days")) %>% #difference between end dates of most recent poll and 4 before it 
+    mutate(lag05 = time_length(end_date - lag(start_date, 5), unit = "days")) %>% #difference between end dates of most recent poll and 5 before it 
+    mutate(lag06 = time_length(end_date - lag(start_date, 6), unit = "days")) %>% #difference between end dates of most recent poll and 6 before it 
+    mutate(lag07 = time_length(end_date - lag(start_date, 7), unit = "days")) %>% #difference between end dates of most recent poll and 7 before it (no overlaps for pollster-sponsor after the 7th lag)
+
+```{r legacy media}
+
+spon1022 <- limit1022 %>%
+  separate(sponsor_ids, c("spon_id1","spon_id2","spon_id3","spon_id4","spon_id5","spon_id6","spon_id7","spon_id8"), sep = ",")
+
+spon1022$spon_id1 <- as.numeric(spon1022$spon_id1)
+spon1022$spon_id2 <- as.numeric(spon1022$spon_id2)
+spon1022$spon_id3 <- as.numeric(spon1022$spon_id3)
+spon1022$spon_id4 <- as.numeric(spon1022$spon_id4)
+spon1022$spon_id5 <- as.numeric(spon1022$spon_id5)
+spon1022$spon_id6 <- as.numeric(spon1022$spon_id6)
+spon1022$spon_id7 <- as.numeric(spon1022$spon_id7)
+spon1022$spon_id8 <- as.numeric(spon1022$spon_id8)
+
+  #based on pollster_id
+legacy1022 <- spon1022 %>%
+  mutate(legacy_pollster = if_else(pollster_id == 816, 1, #ABC News
+                      if_else(pollster_id == 1704, 1, #ABC/WaPo
+                      if_else(pollster_id == 1502, 1, #WaPo/KFF
+                      if_else(pollster_id == 1460, 1, #WaPo/George Mason
+                      if_else(pollster_id == 1296, 1, #Univ of Maryland/WaPo
+                      if_else(pollster_id == 486, 1, #The Washington Post
+                      if_else(pollster_id == 79, 1, #CBS News       
+                      if_else(pollster_id == 80, 1, #New York Times/CBS News
+                      if_else(pollster_id == 1424, 1, #Siena College/NYT Upshot
+                      if_else(pollster_id == 160, 1, #Fox (Pulse Opinion Research)
+                      if_else(pollster_id == 613, 1, #Associated Press/GfK
+                      if_else(pollster_id == 28, 1, #Associated Press
+                      if_else(pollster_id == 1360, 1, #AP/NORC       
+                      if_else(pollster_id == 490, 1, #Time
+                      if_else(pollster_id == 607, 1, 0)))))))))))))))) %>%  #LA Times
+  #Legacy media as sponsors
+  mutate(legacy_spon = if_else(spon_id1 %in% 379 | spon_id2 %in% 379 | spon_id3 %in% 379 | spon_id4 %in% 379, 1, #ABC News
+                          if_else(spon_id1 %in% 132 | spon_id2 %in% 132 | spon_id3 %in% 132 | spon_id4 %in% 132, 1, #NBC News
+                          if_else(spon_id1 %in% 133 | spon_id2 %in% 133 | spon_id3 %in% 133 | spon_id4 %in% 133, 1, #CBS News
+                          if_else(spon_id1 %in% 134 | spon_id2 %in% 134 | spon_id3 %in% 134 | spon_id4 %in% 134, 1, #NYT
+                          if_else(spon_id1 %in% 276 | spon_id2 %in% 276 | spon_id3 %in% 276 | spon_id4 %in% 276, 1, #WSJ
+                          if_else(spon_id1 %in% 143 | spon_id2 %in% 143 | spon_id3 %in% 143 | spon_id4 %in% 143, 1, #CNN
+                          if_else(spon_id1 %in% 149 | spon_id2 %in% 149 | spon_id3 %in% 149 | spon_id4 %in% 149, 1, #FOX News
+                          if_else(spon_id1 %in% 135 | spon_id2 %in% 135 | spon_id3 %in% 135 | spon_id4 %in% 135, 1, #USAT
+                          if_else(spon_id1 %in% 378 | spon_id2 %in% 378 | spon_id3 %in% 378 | spon_id4 %in% 378, 1, #WaPo
+                          if_else(spon_id1 %in% 398 | spon_id2 %in% 398 | spon_id3 %in% 398 | spon_id4 %in% 398, 1, #AP
+                          if_else(spon_id1 %in%  71 | spon_id2 %in%  71 | spon_id3 %in%  71 | spon_id4 %in%  71, 1, #Reuters
+                          if_else(spon_id1 %in% 382 | spon_id2 %in% 382 | spon_id3 %in% 382 | spon_id4 %in% 382, 1, #Time
+                          if_else(spon_id1 %in% 380 | spon_id2 %in% 380 | spon_id3 %in% 380 | spon_id4 %in% 380, 1, #Newsweek
+                          if_else(spon_id1 %in% 300 | spon_id2 %in% 300 | spon_id3 %in% 300 | spon_id4 %in% 300, 1, #LAT
+                          if_else(spon_id1 %in% 676 | spon_id2 %in% 676 | spon_id3 %in% 676 | spon_id4 %in% 676, 1, #USC/LAT
+                          if_else(spon_id1 %in% 153 | spon_id2 %in% 153 | spon_id3 %in% 153 | spon_id4 %in% 153, 1, #Chicago Tribune
+                          if_else(spon_id1 %in% 576 | spon_id2 %in% 576 | spon_id3 %in% 576 | spon_id4 %in% 576, 1, #CNBC
+                          if_else(spon_id1 %in% 374 | spon_id2 %in% 374 | spon_id3 %in% 374 | spon_id4 %in% 374, 1, #MSNBC
+                          if_else(spon_id1 %in%1745 | spon_id2 %in%1745 | spon_id3 %in%1745 | spon_id4 %in%1745, 1, #FOX Business
+                          if_else(spon_id1 %in% 373 | spon_id2 %in% 373 | spon_id3 %in% 373 | spon_id4 %in% 373, 1, #NPR
+                          if_else(spon_id1 %in% 520 | spon_id2 %in% 520 | spon_id3 %in% 520 | spon_id4 %in% 520, 1, #CSM
+                          if_else(spon_id1 %in% 649 | spon_id2 %in% 649 | spon_id3 %in% 649 | spon_id4 %in% 649, 1, #UPI
+                          if_else(spon_id1 %in%  96 | spon_id2 %in%  96 | spon_id3 %in%  96 | spon_id4 %in%  96, 1, #Bloomberg
+                          if_else(spon_id1 %in% 516 | spon_id2 %in% 516 | spon_id3 %in% 516 | spon_id4 %in% 516, 1, #US News & WR
+                          if_else(spon_id1 %in% 765 | spon_id2 %in% 765 | spon_id3 %in% 765 | spon_id4 %in% 765, 1, #PBS NH
+                          if_else(spon_id1 %in%  38 | spon_id2 %in%  38 | spon_id3 %in%  38 | spon_id4 %in%  38, 1, #Univision
+                          if_else(spon_id1 %in% 360 | spon_id2 %in% 360 | spon_id3 %in% 360 | spon_id4 %in% 360, 1, #McClatchy
+                          if_else(spon_id1 %in% 540 | spon_id2 %in% 540 | spon_id3 %in% 540 | spon_id4 %in% 540, 1, #Gannett
+                          if_else(spon_id1 %in% 507 | spon_id2 %in% 507 | spon_id3 %in% 507 | spon_id4 %in% 507, 1, #Atlantic Media
+                          if_else(spon_id1 %in% 402 | spon_id2 %in% 402 | spon_id3 %in% 402 | spon_id4 %in% 402, 1, #Nat Journal
+                          if_else(spon_id1 %in% 320 | spon_id2 %in% 320 | spon_id3 %in% 320 | spon_id4 %in% 320, 1, 0)))))))))))))))))))))))))))))))) %>% #Telemundo
+                          #if_else(spon_id1 %in% 960 | spon_id2 %in% 960 | spon_id3 %in% 960 | spon_id4 %in% 960, 1, #The Hill
+                          #if_else(spon_id1 %in%1546 | spon_id2 %in%1546 | spon_id3 %in%1546 | spon_id4 %in%1546, 1, 0)))))))))))))))))))))))))))))))) %>% #Roll Call
+  
+  #newspaper pollster
+  mutate(newspaper_pollster = if_else(pollster_id == 104, 1, 0)) %>% #Columbus Dispatch
+  
+  #newspaper sponsor 1
+  mutate(newspaper_spon1 = if_else(spon_id1 %in% 1557 | spon_id2 %in% 1557 | spon_id3 %in% 1557 | spon_id4 %in% 1557, 1, #B'ham News
+                          if_else(spon_id1 %in% 1579 | spon_id2 %in% 1579 | spon_id3 %in% 1579 | spon_id4 %in% 1579, 1, #Huntsville Times
+                          if_else(spon_id1 %in% 1174 | spon_id2 %in% 1174 | spon_id3 %in% 1174 | spon_id4 %in% 1174, 1, #Press-Register
+                          if_else(spon_id1 %in%  730 | spon_id2 %in%  730 | spon_id3 %in%  730 | spon_id4 %in%  730, 1, #AK Dispatch News
+                          if_else(spon_id1 %in%  743 | spon_id2 %in%  743 | spon_id3 %in%  743 | spon_id4 %in%  743, 1, #Arizona Republic
+                          if_else(spon_id1 %in% 1083 | spon_id2 %in% 1083 | spon_id3 %in% 1083 | spon_id4 %in% 1083, 1, #AZ Capitol Times
+                          if_else(spon_id1 %in%  371 | spon_id2 %in%  371 | spon_id3 %in%  371 | spon_id4 %in%  371, 1, #Log Cabin Dem
+                          if_else(spon_id1 %in%  300 | spon_id2 %in%  300 | spon_id3 %in%  300 | spon_id4 %in%  300, 1, #LA Times
+                          if_else(spon_id1 %in%  804 | spon_id2 %in%  804 | spon_id3 %in%  804 | spon_id4 %in%  804, 1, #SD Union-Tribune
+                          if_else(spon_id1 %in%  160 | spon_id2 %in%  160 | spon_id3 %in%  160 | spon_id4 %in%  160, 1, #Denver Post
+                          if_else(spon_id1 %in%  532 | spon_id2 %in%  532 | spon_id3 %in%  532 | spon_id4 %in%  532, 1, #Hartford Courant
+                          if_else(spon_id1 %in%  984 | spon_id2 %in%  984 | spon_id3 %in%  984 | spon_id4 %in%  984, 1, #Hearst CT Media
+                          if_else(spon_id1 %in%  646 | spon_id2 %in%  646 | spon_id3 %in%  646 | spon_id4 %in%  646, 1, #DE News Journal
+                          if_else(spon_id1 %in%  531 | spon_id2 %in%  531 | spon_id3 %in%  531 | spon_id4 %in%  531, 1, #Washington Informer
+                          if_else(spon_id1 %in%  362 | spon_id2 %in%  362 | spon_id3 %in%  362 | spon_id4 %in%  362, 1, #FL Times-Union
+                          if_else(spon_id1 %in%  491 | spon_id2 %in%  491 | spon_id3 %in%  491 | spon_id4 %in%  491, 1, #The Ledger
+                          if_else(spon_id1 %in% 1367 | spon_id2 %in% 1367 | spon_id3 %in% 1367 | spon_id4 %in% 1367, 1, #Miami Herald
+                          if_else(spon_id1 %in% 1368 | spon_id2 %in% 1368 | spon_id3 %in% 1368 | spon_id4 %in% 1368, 1, #El Nuevo Herald
+                          if_else(spon_id1 %in% 1706 | spon_id2 %in% 1706 | spon_id3 %in% 1706 | spon_id4 %in% 1706, 1, #St. Pete Times
+                          if_else(spon_id1 %in%  285 | spon_id2 %in%  285 | spon_id3 %in%  285 | spon_id4 %in%  285, 1, #Tampa Bay Times
+                          if_else(spon_id1 %in%  655 | spon_id2 %in%  655 | spon_id3 %in%  655 | spon_id4 %in%  655, 1, #AJC
+                          if_else(spon_id1 %in%   45 | spon_id2 %in%   45 | spon_id3 %in%   45 | spon_id4 %in%   45, 1, #Augusta Chronicle
+                          if_else(spon_id1 %in%  264 | spon_id2 %in%  264 | spon_id3 %in%  264 | spon_id4 %in%  264, 1, #Columbus Ledg-Enq
+                          if_else(spon_id1 %in%   74 | spon_id2 %in%   74 | spon_id3 %in%   74 | spon_id4 %in%   74, 1, #Sav Morning News
+                          if_else(spon_id1 %in% 1842 | spon_id2 %in% 1842 | spon_id3 %in% 1842 | spon_id4 %in% 1842, 1, #GA Newspaper Part
+                          if_else(spon_id1 %in%  188 | spon_id2 %in%  188 | spon_id3 %in%  188 | spon_id4 %in%  188, 1, #Hon Star-Advert
+                          if_else(spon_id1 %in% 1568 | spon_id2 %in% 1568 | spon_id3 %in% 1568 | spon_id4 %in% 1568, 1, #Hon Star-Bulletin
+                          if_else(spon_id1 %in% 1866 | spon_id2 %in% 1866 | spon_id3 %in% 1866 | spon_id4 %in% 1866, 1, #ID Statesman 
+                          if_else(spon_id1 %in%  969 | spon_id2 %in%  969 | spon_id3 %in%  969 | spon_id4 %in%  969, 1, 0)))))))))))))))))))))))))))))) %>% #Lewiston Tribune
+                                  
+  #newspaper sponsor continued 2
+  mutate(newspaper_spon2 = if_else(spon_id1 %in%  153 | spon_id2 %in%  153 | spon_id3 %in%  153 | spon_id4 %in%  153, 1, #Chicago Tribune
+                          if_else(spon_id1 %in%  171 | spon_id2 %in%  171 | spon_id3 %in%  171 | spon_id4 %in%  171, 1, #Chicago Sun-Times
+                          if_else(spon_id1 %in% 1750 | spon_id2 %in% 1750 | spon_id3 %in% 1750 | spon_id4 %in% 1750, 1, #Cedar Rapids Gaz
+                          if_else(spon_id1 %in%   52 | spon_id2 %in%   52 | spon_id3 %in%   52 | spon_id4 %in%   52, 1, #Des Moines Register
+                          if_else(spon_id1 %in%  636 | spon_id2 %in%  636 | spon_id3 %in%  636 | spon_id4 %in%  636, 1, #Topeka Cap-Journal
+                          if_else(spon_id1 %in%  174 | spon_id2 %in%  174 | spon_id3 %in%  174 | spon_id4 %in%  174, 1, #Lex Herald-Ldr
+                          if_else(spon_id1 %in%  176 | spon_id2 %in%  176 | spon_id3 %in%  176 | spon_id4 %in%  176, 1, #The Courier-Journal
+                          if_else(spon_id1 %in%  376 | spon_id2 %in%  376 | spon_id3 %in%  376 | spon_id4 %in%  376, 1, #The Advocate
+                          if_else(spon_id1 %in%  771 | spon_id2 %in%  771 | spon_id3 %in%  771 | spon_id4 %in%  771, 1, #The Times-Picayune
+                          if_else(spon_id1 %in%  260 | spon_id2 %in%  260 | spon_id3 %in%  260 | spon_id4 %in%  260, 1, #Bangor Daily News
+                          if_else(spon_id1 %in%  206 | spon_id2 %in%  206 | spon_id3 %in%  206 | spon_id4 %in%  206, 1, #P'land Press Herald
+                          if_else(spon_id1 %in%  207 | spon_id2 %in%  207 | spon_id3 %in%  207 | spon_id4 %in%  207, 1, #ME Sunday Telegram
+                          if_else(spon_id1 %in%  317 | spon_id2 %in%  317 | spon_id3 %in%  317 | spon_id4 %in%  317, 1, #Baltimore Sun
+                          if_else(spon_id1 %in%  378 | spon_id2 %in%  378 | spon_id3 %in%  378 | spon_id4 %in%  378, 1, #WaPo
+                          if_else(spon_id1 %in%   68 | spon_id2 %in%   68 | spon_id3 %in%   68 | spon_id4 %in%   68, 1, #Boston Globe
+                          if_else(spon_id1 %in%  139 | spon_id2 %in%  139 | spon_id3 %in%  139 | spon_id4 %in%  139, 1, #Boston Herald
+                          if_else(spon_id1 %in%  167 | spon_id2 %in%  167 | spon_id3 %in%  167 | spon_id4 %in%  167, 1, #Detroit News
+                          if_else(spon_id1 %in%  177 | spon_id2 %in%  177 | spon_id3 %in%  177 | spon_id4 %in%  177, 1, #Detroit Free Press
+                          if_else(spon_id1 %in%  159 | spon_id2 %in%  159 | spon_id3 %in%  159 | spon_id4 %in%  159, 1, #Minn Star Tribune
+                          if_else(spon_id1 %in%  983 | spon_id2 %in%  983 | spon_id3 %in%  983 | spon_id4 %in%  983, 1, #St. Cloud Times
+                          if_else(spon_id1 %in% 1033 | spon_id2 %in% 1033 | spon_id3 %in% 1033 | spon_id4 %in% 1033, 1, #KC Star
+                          if_else(spon_id1 %in%  544 | spon_id2 %in%  544 | spon_id3 %in%  544 | spon_id4 %in%  544, 1, #StL Post-Dispatch
+                          if_else(spon_id1 %in%  813 | spon_id2 %in%  813 | spon_id3 %in%  813 | spon_id4 %in%  813, 1, #Omaha World-Herald
+                          if_else(spon_id1 %in%  545 | spon_id2 %in%  545 | spon_id3 %in%  545 | spon_id4 %in%  545, 1, #LV Review-Journal
+                          if_else(spon_id1 %in%  542 | spon_id2 %in%  542 | spon_id3 %in%  542 | spon_id4 %in%  542, 1, #Reno Gaz-Journal
+                          if_else(spon_id1 %in%  201 | spon_id2 %in%  201 | spon_id3 %in%  201 | spon_id4 %in%  201, 1, #Asbury Park Press
+                          if_else(spon_id1 %in%  155 | spon_id2 %in%  155 | spon_id3 %in%  155 | spon_id4 %in%  155, 1, #Albuquerque Journal
+                          if_else(spon_id1 %in%  830 | spon_id2 %in%  830 | spon_id3 %in%  830 | spon_id4 %in%  830, 1, #Buffalo News
+                          if_else(spon_id1 %in%  127 | spon_id2 %in%  127 | spon_id3 %in%  127 | spon_id4 %in%  127, 1, #Newsday
+                          if_else(spon_id1 %in% 1868 | spon_id2 %in% 1868 | spon_id3 %in% 1868 | spon_id4 %in% 1868, 1, 0))))))))))))))))))))))))))))))) %>% #Journal News
+  
+  #newspaper sponsor continued 3
+  mutate(newspaper_spon3 = if_else(spon_id1 %in%  134 | spon_id2 %in%  134 | spon_id3 %in%  134 | spon_id4 %in%  134, 1, #NYT
+                          if_else(spon_id1 %in% 1869 | spon_id2 %in% 1869 | spon_id3 %in% 1869 | spon_id4 %in% 1869, 1, #Roch Dem & Chron
+                          if_else(spon_id1 %in% 1100 | spon_id2 %in% 1100 | spon_id3 %in% 1100 | spon_id4 %in% 1100, 1, #The Post-Standard
+                          if_else(spon_id1 %in% 1018 | spon_id2 %in% 1018 | spon_id3 %in% 1018 | spon_id4 %in% 1018, 1, #Charlotte Observer
+                          if_else(spon_id1 %in% 1188 | spon_id2 %in% 1188 | spon_id3 %in% 1188 | spon_id4 %in% 1188, 1, #Raleigh News & Obs
+                          if_else(spon_id1 %in% 1506 | spon_id2 %in% 1506 | spon_id3 %in% 1506 | spon_id4 %in% 1506, 1, #North State Journal
+                          if_else(spon_id1 %in%  915 | spon_id2 %in%  915 | spon_id3 %in%  915 | spon_id4 %in%  915, 1, #Forum Commun
+                          if_else(spon_id1 %in% 1010 | spon_id2 %in% 1010 | spon_id3 %in% 1010 | spon_id4 %in% 1010, 1, #Cincinnati Enquirer
+                          if_else(spon_id1 %in%  388 | spon_id2 %in%  388 | spon_id3 %in%  388 | spon_id4 %in%  388, 1, #The Oklahoman
+                          if_else(spon_id1 %in%   86 | spon_id2 %in%   86 | spon_id3 %in%   86 | spon_id4 %in%   86, 1, #Tulsa World
+                          if_else(spon_id1 %in%  329 | spon_id2 %in%  329 | spon_id3 %in%  329 | spon_id4 %in%  329, 1, #The Oregonian
+                          if_else(spon_id1 %in% 1591 | spon_id2 %in% 1591 | spon_id3 %in% 1591 | spon_id4 %in% 1591, 1, #Portland Tribune
+                          if_else(spon_id1 %in%  269 | spon_id2 %in%  269 | spon_id3 %in%  269 | spon_id4 %in%  269, 1, #Morning Call
+                          if_else(spon_id1 %in% 1847 | spon_id2 %in% 1847 | spon_id3 %in% 1847 | spon_id4 %in% 1847, 1, #Phil Daily News
+                          if_else(spon_id1 %in% 1875 | spon_id2 %in% 1875 | spon_id3 %in% 1875 | spon_id4 %in% 1875, 1, #Phil Inquirer
+                          if_else(spon_id1 %in% 1371 | spon_id2 %in% 1371 | spon_id3 %in% 1371 | spon_id4 %in% 1371, 1, #Pitt Tribune-Review
+                          if_else(spon_id1 %in% 1848 | spon_id2 %in% 1848 | spon_id3 %in% 1848 | spon_id4 %in% 1848, 1, #The Times Leader
+                          if_else(spon_id1 %in%  950 | spon_id2 %in%  950 | spon_id3 %in%  950 | spon_id4 %in%  950, 1, #York Daily Record
+                          if_else(spon_id1 %in% 1445 | spon_id2 %in% 1445 | spon_id3 %in% 1445 | spon_id4 %in% 1445, 1, #York Dispatch
+                          if_else(spon_id1 %in% 1171 | spon_id2 %in% 1171 | spon_id3 %in% 1171 | spon_id4 %in% 1171, 1, #El Vocero
+                          if_else(spon_id1 %in% 1375 | spon_id2 %in% 1375 | spon_id3 %in% 1375 | spon_id4 %in% 1375, 1, #Providence Journal
+                          if_else(spon_id1 %in%  191 | spon_id2 %in%  191 | spon_id3 %in%  191 | spon_id4 %in%  191, 1, #Post and Courier
+                          if_else(spon_id1 %in%  166 | spon_id2 %in%  166 | spon_id3 %in%  166 | spon_id4 %in%  166, 1, #Aberdeen Am. News
+                          if_else(spon_id1 %in%  332 | spon_id2 %in%  332 | spon_id3 %in%  332 | spon_id4 %in%  332, 1, #Argus Leader
+                          if_else(spon_id1 %in% 1688 | spon_id2 %in% 1688 | spon_id3 %in% 1688 | spon_id4 %in% 1688, 1, #The Tennesean
+                          if_else(spon_id1 %in% 1851 | spon_id2 %in% 1851 | spon_id3 %in% 1851 | spon_id4 %in% 1851, 1, #TN Newsp Netw
+                          if_else(spon_id1 %in%  368 | spon_id2 %in%  368 | spon_id3 %in%  368 | spon_id4 %in%  368, 1, #Amarillo Globe-News
+                          if_else(spon_id1 %in%  756 | spon_id2 %in%  756 | spon_id3 %in%  756 | spon_id4 %in%  756, 1, #Austin Am-Statesman
+                          if_else(spon_id1 %in% 1164 | spon_id2 %in% 1164 | spon_id3 %in% 1164 | spon_id4 %in% 1164, 1, #Dallas Morning News
+                          if_else(spon_id1 %in% 1558 | spon_id2 %in% 1558 | spon_id3 %in% 1558 | spon_id4 %in% 1558, 1, 0))))))))))))))))))))))))))))))) %>% #Houston Chron
+  
+  #newspaper sponsor continued 4
+  mutate(newspaper_spon4 = if_else(spon_id1 %in%  369 | spon_id2 %in%  369 | spon_id3 %in%  369 | spon_id4 %in%  369, 1, #Lubbock Av-Jour
+                          if_else(spon_id1 %in%  400 | spon_id2 %in%  400 | spon_id3 %in%  400 | spon_id4 %in%  400, 1, #Deseret News
+                          if_else(spon_id1 %in%  431 | spon_id2 %in%  431 | spon_id3 %in%  431 | spon_id4 %in%  431, 1, #Salt Lake Tribune
+                          if_else(spon_id1 %in%  858 | spon_id2 %in%  858 | spon_id3 %in%  858 | spon_id4 %in%  858, 1, #Virginian-Pilot
+                          if_else(spon_id1 %in% 1517 | spon_id2 %in% 1517 | spon_id3 %in% 1517 | spon_id4 %in% 1517, 1, #Rich Times-Dis
+                          if_else(spon_id1 %in%  378 | spon_id2 %in%  378 | spon_id3 %in%  378 | spon_id4 %in%  378, 1, #WaPo
+                          if_else(spon_id1 %in% 1812 | spon_id2 %in% 1812 | spon_id3 %in% 1812 | spon_id4 %in% 1812, 1, #Seattle Times
+                          if_else(spon_id1 %in%  965 | spon_id2 %in%  965 | spon_id3 %in%  965 | spon_id4 %in%  965, 1, #Spokesman-Review
+                          if_else(spon_id1 %in%  967 | spon_id2 %in%  967 | spon_id3 %in%  967 | spon_id4 %in%  967, 1, #WW Union-Bulletin
+                          if_else(spon_id1 %in%  179 | spon_id2 %in%  179 | spon_id3 %in%  179 | spon_id4 %in%  179, 1, #Charl Daily Mail
+                          if_else(spon_id1 %in%  987 | spon_id2 %in%  987 | spon_id3 %in%  987 | spon_id4 %in%  987, 1, #Dominion Post
+                          if_else(spon_id1 %in% 1244 | spon_id2 %in% 1244 | spon_id3 %in% 1244 | spon_id4 %in% 1244, 1, #WI State Journal
+                          if_else(spon_id1 %in% 1006 | spon_id2 %in% 1006 | spon_id3 %in% 1006 | spon_id4 %in% 1006, 1, #Journal Sentinel
+                          if_else(spon_id1 %in%  339 | spon_id2 %in%  339 | spon_id3 %in%  339 | spon_id4 %in%  339, 1, 0))))))))))))))) %>% #Casper Star-Tribune
+  mutate(newspaper_spon_ovr = if_else(newspaper_spon1 == 1 | newspaper_spon2 == 1 | newspaper_spon3 == 1 | newspaper_spon4 == 1, 1, 0)) %>%
+  mutate(legacy = if_else(legacy_pollster == 1 | legacy_spon == 1, 1, 0)) %>%
+  mutate(legacy_or_newsp = if_else(legacy_pollster == 1 | legacy_spon == 1 | newspaper_pollster == 1 | newspaper_spon_ovr == 1, 1, 0))
+
+rest1022 <- legacy1022 %>%
+  filter(legacy_pollster == 0 & legacy_spon == 0 & newspaper_pollster == 0 & newspaper_spon_ovr == 0)
+                                  
+```
+
+```{r group by data}
+legacy20days <- legacy1022 %>%
+  filter(days_elec < -19)
+
+#Reuters/Ipsos tracking poll for GB in 2018 is issue
+
+numerator <- legacy20days %>%
+  group_by(cycle, type, legacy) %>%
+  summarize(
+    count = n()
+  )
+
+numerator <- as.data.frame(numerator)
+
+denominator <- legacy20days %>%
+  group_by(cycle, type) %>%
+  summarize(
+    total = n()
+  )
+
+denominator <- as.data.frame(denominator)
+
+stats <- full_join(numerator, denominator) %>%
+  mutate(perc = (count/total) *100) %>%
+  add_row(cycle = 2014, type = "H", legacy = 1, count = 0, total = 193, perc = 0) %>%
+  add_row(cycle = 2022, type = "H", legacy = 1, count = 0, total = 178, perc = 0)
+
+stats_leg_news <- stats %>%
+  filter(legacy == 1)
+
+chart.perc <- ggplot(stats_leg_news, aes(x = cycle, y = perc, group = type, color = type)) +
+  geom_line() +
+  scale_x_continuous(limits = c(2010, 2022),
+                     breaks = c(2010, 2014, 2018, 2022))
+
+chart.perc
+
+chart.count <- ggplot(stats_leg_news, aes(x = cycle, y = count, group = type, color = type)) +
+  geom_line() +
+  scale_x_continuous(limits = c(2010, 2022),
+                     breaks = c(2010, 2014, 2018, 2022))
+
+chart.count
+
+
+```
