@@ -1,0 +1,289 @@
+race_id,type,state,state_full,office_id,office_name,office_seat_name,cycle,stage,special,incumbent_party,party,date,created_at,updated_at
+1507,S,AK,Alaska,5,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1506,S,AL,Alabama,15,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1509,S,AR,Arkansas,22,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1508,S,AZ,Arizona,33,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1510,S,CA,California,89,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1511,S,CO,Colorado,99,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1512,S,CT,Connecticut,107,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1513,S,DE,Delaware,111,U.S. Senate,Class II,2010,general,TRUE,vacant,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1514,S,FL,Florida,139,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1515,S,GA,Georgia,155,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1516,S,HI,Hawaii,160,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1521,S,IA,Iowa,168,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1517,S,ID,Idaho,173,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1518,S,IL,Illinois,195,U.S. Senate,Class III,2010,general,FALSE,vacant,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1520,S,IN,Indiana,207,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1522,S,KS,Kansas,214,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1523,S,KY,Kentucky,223,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1525,S,MD,Maryland,257,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1527,S,MO,Missouri,303,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1532,S,NC,North Carolina,330,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1533,S,ND,North Dakota,334,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1529,S,NH,New Hampshire,345,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1528,S,NV,Nevada,373,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1531,S,NY,New York,404,U.S. Senate,Class I,2010,general,TRUE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1530,S,NY,New York,405,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1534,S,OH,Ohio,426,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1535,S,OK,Oklahoma,434,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1536,S,OR,Oregon,442,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1537,S,PA,Pennsylvania,464,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1538,S,SC,South Carolina,478,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1539,S,SD,South Dakota,482,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1540,S,UT,Utah,535,U.S. Senate,Class III,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1541,S,VT,Vermont,553,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1542,S,WA,Washington,565,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1544,S,WI,Wisconsin,576,U.S. Senate,Class III,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1543,S,WV,West Virginia,581,U.S. Senate,Class I,2010,general,TRUE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1524,S,LA,Louisiana,233,U.S. Senate,Class III,2010,jungle primary,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+2,S,MI,Michigan,280,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+6,S,MN,Minnesota,291,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+5,S,MT,Montana,314,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+14,S,NC,North Carolina,329,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+8,S,NH,New Hampshire,344,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+10,S,NJ,New Jersey,361,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+3,S,NM,New Mexico,367,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+20,S,OR,Oregon,441,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+33,S,RI,Rhode Island,469,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+12,S,AK,Alaska,4,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+22,S,SD,South Dakota,481,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+32,S,AR,Arkansas,21,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+23,S,CO,Colorado,98,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+30,S,WV,West Virginia,582,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+34,S,HI,Hawaii,160,U.S. Senate,Class III,2014,general,TRUE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+4,S,IL,Illinois,194,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+31,S,MA,Massachusetts,246,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+7,S,AL,Alabama,14,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+17,S,GA,Georgia,154,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+27,S,ID,Idaho,172,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+21,S,KS,Kansas,213,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+15,S,KY,Kentucky,222,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+9,S,ME,Maine,262,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+18,S,MS,Mississippi,310,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+1,S,NE,Nebraska,340,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+29,S,OK,Oklahoma,433,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+11,S,SC,South Carolina,477,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+36,S,SC,South Carolina,478,U.S. Senate,Class III,2014,general,TRUE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+28,S,TN,Tennessee,494,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+19,S,TX,Texas,529,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+13,S,WY,Wyoming,586,U.S. Senate,Class II,2014,general,FALSE,REP,,11/4/14,10/5/14 21:07,2/12/19 0:25
+24,S,DE,Delaware,111,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+26,S,IA,Iowa,167,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+25,S,LA,Louisiana,232,U.S. Senate,Class II,2014,jungle primary,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+16,S,VA,Virginia,549,U.S. Senate,Class II,2014,general,FALSE,DEM,,11/4/14,10/5/14 21:07,2/12/19 0:25
+35,S,OK,Oklahoma,434,U.S. Senate,Class III,2014,general,TRUE,vacant,,11/4/14,10/5/14 21:07,10/14/21 11:14
+130,S,MS,Mississippi,310,U.S. Senate,Class II,2018,jungle primary,TRUE,REP,,11/6/18,9/10/18 14:57,12/23/19 12:23
+96,S,AZ,Arizona,32,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+108,S,MS,Mississippi,309,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+111,S,NE,Nebraska,339,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+112,S,NV,Nevada,372,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+120,S,TN,Tennessee,493,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+121,S,TX,Texas,528,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+122,S,UT,Utah,534,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+128,S,WY,Wyoming,585,U.S. Senate,Class I,2018,general,FALSE,REP,,11/6/18,6/22/18 15:15,2/12/19 0:25
+97,S,CA,California,88,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+98,S,CT,Connecticut,106,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+99,S,DE,Delaware,110,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+100,S,FL,Florida,138,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+101,S,HI,Hawaii,159,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+102,S,IN,Indiana,206,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+103,S,ME,Maine,261,U.S. Senate,Class I,2018,general,FALSE,IND,,11/6/18,6/22/18 15:15,10/14/21 11:14
+123,S,VT,Vermont,552,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,10/14/21 11:14
+104,S,MD,Maryland,256,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+105,S,MA,Massachusetts,245,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+106,S,MI,Michigan,279,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+107,S,MN,Minnesota,290,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+109,S,MO,Missouri,302,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+110,S,MT,Montana,313,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+113,S,NJ,New Jersey,360,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+114,S,NM,New Mexico,366,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+115,S,NY,New York,404,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+116,S,ND,North Dakota,333,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+117,S,OH,Ohio,425,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+118,S,PA,Pennsylvania,463,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+119,S,RI,Rhode Island,468,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+124,S,VA,Virginia,548,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+125,S,WA,Washington,564,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+126,S,WV,West Virginia,581,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+127,S,WI,Wisconsin,575,U.S. Senate,Class I,2018,general,FALSE,DEM,,11/6/18,6/22/18 15:15,2/12/19 0:25
+129,S,MN,Minnesota,291,U.S. Senate,Class II,2018,general,TRUE,DEM,,11/6/18,8/13/18 13:55,2/12/19 0:25
+9482,S,OK,Oklahoma,433,U.S. Senate,Class II,2022,general,TRUE,REP,,11/8/22,3/17/22 13:25,3/17/22 13:25
+8917,S,AL,Alabama,15,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8918,S,AK,Alaska,5,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8919,S,AZ,Arizona,33,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8920,S,AR,Arkansas,22,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8921,S,CA,California,89,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8922,S,CO,Colorado,99,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8923,S,CT,Connecticut,107,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8924,S,FL,Florida,139,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8925,S,GA,Georgia,155,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8926,S,HI,Hawaii,160,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8927,S,ID,Idaho,173,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8928,S,IL,Illinois,195,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8929,S,IN,Indiana,207,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8930,S,IA,Iowa,168,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8931,S,KS,Kansas,214,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8932,S,KY,Kentucky,223,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8933,S,LA,Louisiana,233,U.S. Senate,Class III,2022,jungle primary,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8935,S,MD,Maryland,257,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8936,S,MO,Missouri,303,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8937,S,NV,Nevada,373,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8938,S,NH,New Hampshire,345,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8939,S,NY,New York,405,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8940,S,NC,North Carolina,330,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8941,S,ND,North Dakota,334,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8942,S,OH,Ohio,426,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8943,S,OK,Oklahoma,434,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8944,S,OR,Oregon,442,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8945,S,PA,Pennsylvania,464,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8946,S,SC,South Carolina,478,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8947,S,SD,South Dakota,482,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8948,S,UT,Utah,535,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8949,S,VT,Vermont,553,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8950,S,WA,Washington,565,U.S. Senate,Class III,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8951,S,WI,Wisconsin,576,U.S. Senate,Class III,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+1286,G,IA,Iowa,161,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1300,G,OR,Oregon,435,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1290,G,OK,Oklahoma,427,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1299,G,OH,Ohio,406,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1298,G,NY,New York,374,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1297,G,NV,Nevada,368,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1289,G,NM,New Mexico,362,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1288,G,NH,New Hampshire,341,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1287,G,NE,Nebraska,335,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1296,G,MN,Minnesota,281,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1295,G,MI,Michigan,263,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1292,G,ME,Maine,258,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1293,G,MD,Maryland,247,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1294,G,MA,Massachusetts,234,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1291,G,KS,Kansas,208,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1285,G,IL,Illinois,174,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1275,G,AK,Alaska,2,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1281,G,FL,Florida,112,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1282,G,GA,Georgia,140,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1283,G,HI,Hawaii,156,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1307,G,UT,Utah,530,Governor,,2010,general,TRUE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1274,G,AL,Alabama,6,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1277,G,AR,Arkansas,16,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1276,G,AZ,Arizona,23,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1278,G,CA,California,34,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1279,G,CO,Colorado,90,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1280,G,CT,Connecticut,100,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1310,G,WY,Wyoming,583,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1309,G,WI,Wisconsin,566,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1308,G,VT,Vermont,550,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1284,G,ID,Idaho,169,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1306,G,TX,Texas,495,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1305,G,TN,Tennessee,483,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1304,G,SD,South Dakota,479,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1303,G,SC,South Carolina,470,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1302,G,RI,Rhode Island,465,Governor,,2010,general,FALSE,REP,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1301,G,PA,Pennsylvania,443,Governor,,2010,general,FALSE,DEM,,11/2/10,2/12/19 1:20,10/14/21 11:14
+1223,G,ID,Idaho,169,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1220,G,AL,Alabama,6,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1232,G,AR,Arkansas,16,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1222,G,AZ,Arizona,23,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1255,G,CA,California,34,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1225,G,CT,Connecticut,100,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1253,G,FL,Florida,112,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1249,G,GA,Georgia,140,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1227,G,HI,Hawaii,156,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1226,G,IA,Iowa,161,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1252,G,IL,Illinois,174,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1228,G,KS,Kansas,208,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1251,G,MA,Massachusetts,234,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1241,G,MD,Maryland,247,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1224,G,ME,Maine,258,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1248,G,MI,Michigan,263,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1238,G,MN,Minnesota,281,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1233,G,NE,Nebraska,335,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1235,G,NM,New Mexico,362,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1236,G,NV,Nevada,368,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1237,G,NY,New York,374,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1243,G,OH,Ohio,406,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1242,G,OK,Oklahoma,427,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1240,G,OR,Oregon,435,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1250,G,PA,Pennsylvania,443,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1239,G,RI,Rhode Island,465,Governor,,2014,general,FALSE,IND,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1244,G,SC,South Carolina,470,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1229,G,SD,South Dakota,479,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1246,G,TN,Tennessee,483,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1254,G,TX,Texas,495,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1230,G,VT,Vermont,550,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1245,G,WI,Wisconsin,566,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1231,G,WY,Wyoming,583,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1221,G,AK,Alaska,2,Governor,,2014,general,FALSE,REP,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1247,G,CO,Colorado,90,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+1234,G,NH,New Hampshire,341,Governor,,2014,general,FALSE,DEM,,11/4/14,2/12/19 1:20,10/14/21 11:14
+142,G,IL,Illinois,174,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+136,G,CO,Colorado,90,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+135,G,CA,California,34,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+158,G,PA,Pennsylvania,443,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+166,G,WY,Wyoming,583,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+165,G,WI,Wisconsin,566,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+164,G,VT,Vermont,550,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+163,G,TX,Texas,495,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+162,G,TN,Tennessee,483,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+161,G,SD,South Dakota,479,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+160,G,SC,South Carolina,470,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+156,G,OK,Oklahoma,427,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+155,G,OH,Ohio,406,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+153,G,NM,New Mexico,362,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+152,G,NH,New Hampshire,341,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+151,G,NV,Nevada,368,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+150,G,NE,Nebraska,335,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+148,G,MI,Michigan,263,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+147,G,MA,Massachusetts,234,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+146,G,MD,Maryland,247,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+145,G,ME,Maine,258,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+144,G,KS,Kansas,208,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+143,G,IA,Iowa,161,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+137,G,CT,Connecticut,100,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+141,G,ID,Idaho,169,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+139,G,GA,Georgia,140,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+138,G,FL,Florida,112,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+134,G,AR,Arkansas,16,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+133,G,AZ,Arizona,23,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+131,G,AL,Alabama,6,Governor,,2018,general,FALSE,REP,,11/6/18,10/2/18 14:22,2/12/19 0:25
+132,G,AK,Alaska,2,Governor,,2018,general,FALSE,IND,,11/6/18,10/2/18 14:22,2/12/19 0:25
+159,G,RI,Rhode Island,465,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+157,G,OR,Oregon,435,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+154,G,NY,New York,374,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+149,G,MN,Minnesota,281,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+140,G,HI,Hawaii,156,Governor,,2018,general,FALSE,DEM,,11/6/18,10/2/18 14:22,2/12/19 0:25
+8971,G,NE,Nebraska,335,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8972,G,NV,Nevada,368,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8973,G,NH,New Hampshire,341,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8974,G,NM,New Mexico,362,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8975,G,NY,New York,374,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8976,G,OH,Ohio,406,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8977,G,OK,Oklahoma,427,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8978,G,OR,Oregon,435,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8979,G,PA,Pennsylvania,443,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8980,G,RI,Rhode Island,465,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8981,G,SC,South Carolina,470,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8982,G,SD,South Dakota,479,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8983,G,TN,Tennessee,483,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8984,G,TX,Texas,495,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8986,G,WI,Wisconsin,566,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8987,G,WY,Wyoming,583,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8985,G,VT,Vermont,550,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8952,G,AL,Alabama,6,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8953,G,AK,Alaska,2,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8954,G,AZ,Arizona,23,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8955,G,AR,Arkansas,16,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8956,G,CA,California,34,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8957,G,CO,Colorado,90,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8958,G,CT,Connecticut,100,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8959,G,FL,Florida,112,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8960,G,GA,Georgia,140,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8961,G,HI,Hawaii,156,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8962,G,ID,Idaho,169,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8963,G,IL,Illinois,174,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8964,G,IA,Iowa,161,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8965,G,KS,Kansas,208,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8966,G,ME,Maine,258,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8967,G,MD,Maryland,247,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8968,G,MA,Massachusetts,234,Governor,,2022,general,FALSE,REP,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8969,G,MI,Michigan,263,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
+8970,G,MN,Minnesota,281,Governor,,2022,general,FALSE,DEM,,11/8/22,1/20/21 13:14,1/20/21 13:14
